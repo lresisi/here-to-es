@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "constraints": {
+          "properties": {
+            "passengerCount": {
+              "type": "long"
+            },
+            "suitcaseCount": {
+              "type": "long"
+            }
+          }
+        },
+        "passengerNote": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "prebookPickupTime": {
+          "type": "long"
+        },
+        "rideWaypoints": {
+          "properties": {
+            "destination": {
+              "type": "geo_point"
+            },
+            "pickup": {
+              "type": "geo_point"
+            }
+          }
+        }
+      }
+    }
+  }
+}

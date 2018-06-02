@@ -1,0 +1,108 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "estimatedDurationMs": {
+          "type": "long"
+        },
+        "legs": {
+          "properties": {
+            "destination": {
+              "properties": {
+                "description": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "location": {
+                  "type": "geo_point"
+                }
+              }
+            },
+            "estimatedDurationMs": {
+              "type": "long"
+            },
+            "length": {
+              "type": "long"
+            },
+            "lineName": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "operatorName": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "origin": {
+              "properties": {
+                "description": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "location": {
+                  "type": "geo_point"
+                }
+              }
+            },
+            "transportMode": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "route": {
+          "properties": {
+            "destination": {
+              "type": "geo_point"
+            },
+            "pickup": {
+              "type": "geo_point"
+            }
+          }
+        },
+        "transfers": {
+          "type": "long"
+        },
+        "type": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

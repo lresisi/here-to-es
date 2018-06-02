@@ -1,0 +1,22 @@
+{
+  "constraints": {
+    "passengerCount": 2,
+    "suitcaseCount": 1
+  },
+  "passengerNote": "ffft",
+  "prebookPickupTime": 1527813103002,
+  "rideWaypoints": {
+    "destination": {
+      "location": {
+        "lat": 51.6243,
+        "lng": 0.031
+      }
+    },
+    "pickup": {
+      "location": {
+        "lat": 51.55297,
+        "lng": -0.29553
+      }
+    }
+  }
+}

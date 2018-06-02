@@ -1,0 +1,35 @@
+{
+  "cancellationPolicy": "ALLOWED",
+  "estimatedPickupTime": 1527813111000,
+  "estimatedPrice": {
+    "priceRange": {
+      "currencyCode": "NIS",
+      "lowerBound": 0.03,
+      "upperBound": 0.80
+    }
+  },
+  "offerId": "5b10641d70c6cb0001beb3a9",
+  "route": {
+    "destination": {
+      "location": {
+        "lat": 0.0,
+        "lng": 0.0
+      }
+    },
+    "pickup": {
+      "location": {
+        "lat": 0.0,
+        "lng": 0.0
+      }
+    }
+  },
+  "supplier": {
+    "getAddress": "Not yet supported",
+    "getEnglishName": "SDK-SB-supplier3",
+    "getLocalName": "SDK-SB-supplier3",
+    "getPhoneNumber": "+9720545555555",
+    "supplierId": ""
+  },
+  "type": "TAXI",
+  "expirationTime": 1527801161000
+}

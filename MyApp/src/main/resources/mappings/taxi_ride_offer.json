@@ -1,0 +1,129 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "cancellationPolicy": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "estimatedPickupTime": {
+          "type": "long"
+        },
+        "estimatedPrice": {
+          "properties": {
+            "priceRange": {
+              "properties": {
+                "currencyCode": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "lowerBound": {
+                  "type": "float"
+                },
+                "upperBound": {
+                  "type": "float"
+                }
+              }
+            }
+          }
+        },
+        "expirationTime": {
+          "type": "long"
+        },
+        "offerId": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "route": {
+          "properties": {
+            "destination": {
+              "type": "geo_point"
+            },
+            "pickup": {
+              "type": "geo_point"
+            }
+          }
+        },
+        "supplier": {
+          "properties": {
+            "getAddress": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "getEnglishName": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "getLocalName": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "getPhoneNumber": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "supplierId": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "type": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

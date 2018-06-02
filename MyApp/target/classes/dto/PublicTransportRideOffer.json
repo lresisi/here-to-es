@@ -1,0 +1,155 @@
+{
+  "estimatedDurationMs": 6300000,
+  "legs": [
+    {
+      "destination": {
+        "description": "Wembley Central",
+        "location": {
+          "lat": 51.552326,
+          "lng": -0.296409
+        }
+      },
+      "estimatedDurationMs": 180000,
+      "length": 168,
+      "origin": {
+        "location": {
+          "lat": 51.55297,
+          "lng": -0.29553
+        }
+      },
+      "transportMode": "WALK"
+    },
+    {
+      "destination": {
+        "description": "London Euston",
+        "location": {
+          "lat": 51.528137,
+          "lng": -0.133898
+        }
+      },
+      "estimatedDurationMs": 720000,
+      "lineName": "Northampton - London Euston",
+      "operatorName": "West Midlands Trains",
+      "origin": {
+        "description": "Wembley Central",
+        "location": {
+          "lat": 51.552326,
+          "lng": -0.296409
+        }
+      },
+      "transportMode": "REGIONAL_TRAIN"
+    },
+    {
+      "destination": {
+        "description": "Euston Station (Stop D)",
+        "location": {
+          "lat": 51.527725,
+          "lng": -0.132286
+        }
+      },
+      "estimatedDurationMs": 360000,
+      "length": 192,
+      "origin": {
+        "description": "London Euston",
+        "location": {
+          "lat": 51.528137,
+          "lng": -0.133898
+        }
+      },
+      "transportMode": "WALK"
+    },
+    {
+      "destination": {
+        "description": "Hackney Downs Station (Stop N)",
+        "location": {
+          "lat": 51.548927,
+          "lng": -0.061405
+        }
+      },
+      "estimatedDurationMs": 1380000,
+      "lineName": "30",
+      "operatorName": "Tower Transit",
+      "origin": {
+        "description": "Euston Station (Stop D)",
+        "location": {
+          "lat": 51.527725,
+          "lng": -0.132286
+        }
+      },
+      "transportMode": "BUS"
+    },
+    {
+      "destination": {
+        "description": "Amhurst Road Hackney Downs (Stop L)",
+        "location": {
+          "lat": 51.548653,
+          "lng": -0.058388
+        }
+      },
+      "estimatedDurationMs": 660000,
+      "length": 416,
+      "origin": {
+        "description": "Hackney Downs Station (Stop N)",
+        "location": {
+          "lat": 51.548927,
+          "lng": -0.061405
+        }
+      },
+      "transportMode": "WALK"
+    },
+    {
+      "destination": {
+        "description": "St Thomas of Canterbury Church (Stop FH)",
+        "location": {
+          "lat": 51.615891,
+          "lng": 0.025212
+        }
+      },
+      "estimatedDurationMs": 1800000,
+      "lineName": "N55",
+      "operatorName": "Stagecoach London",
+      "origin": {
+        "description": "Amhurst Road Hackney Downs (Stop L)",
+        "location": {
+          "lat": 51.548653,
+          "lng": -0.058388
+        }
+      },
+      "transportMode": "BUS"
+    },
+    {
+      "destination": {
+        "location": {
+          "lat": 51.6243,
+          "lng": 0.031
+        }
+      },
+      "estimatedDurationMs": 1020000,
+      "length": 1031,
+      "origin": {
+        "description": "St Thomas of Canterbury Church (Stop FH)",
+        "location": {
+          "lat": 51.615891,
+          "lng": 0.025212
+        }
+      },
+      "transportMode": "WALK"
+    }
+  ],
+  "route": {
+    "destination": {
+      "location": {
+        "lat": 51.6243,
+        "lng": 0.031
+      }
+    },
+    "pickup": {
+      "location": {
+        "lat": 51.55297,
+        "lng": -0.29553
+      }
+    }
+  },
+  "type": "PUBLIC_TRANSPORT",
+  "transfers": 2
+}

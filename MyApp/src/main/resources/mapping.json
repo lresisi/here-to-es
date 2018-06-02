@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "doc": {
+      "properties": {
+        "foo": {
+          "properties": {
+            "bar": {
+              "type": "string",
+              "store": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
