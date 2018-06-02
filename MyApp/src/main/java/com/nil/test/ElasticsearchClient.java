@@ -53,7 +53,6 @@ public class ElasticsearchClient {
         public void afterBulk(long executionId, BulkRequest request, BulkResponse response) {
             if (response.hasFailures()) {
             }
-
         }
 
         /**
@@ -75,7 +74,6 @@ public class ElasticsearchClient {
                 new HttpHost(host, port)));
     }
 
-
     private void initBulkProcessorBuilder() {
         bulkProcessor = BulkProcessor.builder(client::bulkAsync, listener)
                 .setBulkSize(new ByteSizeValue(1, ByteSizeUnit.MB))
@@ -89,12 +87,6 @@ public class ElasticsearchClient {
         bulkProcessor.close();
         client.close();
     }
-
-//    public GetResponse get(String index, String type, String id) throws IOException {
-//        GetRequest getRequest = new GetRequest(index, type, id);
-//        GetResponse getResponse = client.get(getRequest);
-//        return getResponse;
-//    }
 
     public GetResponse get(String index, String id) throws IOException {
         GetRequest getRequest = new GetRequest(index).type("_doc").id(id);
@@ -114,35 +106,6 @@ public class ElasticsearchClient {
         indexRequest.source(json, XContentType.JSON);
         return client.index(indexRequest);
     }
-//    public IndexResponse index(String index, String json) throws IOException {
-//        IndexRequest indexRequest = new IndexRequest(index, "_doc");
-//
-//        JsonParser parser = new JsonParser();
-//        JsonObject o = parser.parse(json).getAsJsonObject();
-//        json = o.toString();
-//        json = LocationConverter.convert(json);
-//            json = "{\n" +
-//                    "  \"constraints\": {\n" +
-//                    "    \"passengerCount\": 2,\n" +
-//                    "    \"suitcaseCount\": 1\n" +
-//                    "  },\n" +
-//                    "  \"passengerNote\": \"ffft\",\n" +
-//                    "  \"prebookPickupTime\": 1527813103002,\n" +
-//                    "  \"rideWaypoints\": {\n" +
-//                    "    \"destination\": {\n" +
-//                    "        \"lat\": 51.6243,\n" +
-//                    "        \"lon\": 0.031\n" +
-//                    "      \n" +
-//                    "    },\n" +
-//                    "    \"pickup\": {\n" +
-//                    "      \"lat\": 51.55297,\n" +
-//                    "      \"lon\": -0.29553\n" +
-//                    "    }\n" +
-//                    "  }\n" +
-//                    "}";
-//        indexRequest.source(json, XContentType.JSON);
-//        return client.index(indexRequest);
-//    }
 
     /**
      * Create an index

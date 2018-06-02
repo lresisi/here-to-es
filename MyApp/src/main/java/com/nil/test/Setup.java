@@ -18,8 +18,6 @@ public class Setup {
         deleteAllIndices(client);
         System.out.println("---------------------");
         createAllIndices(client);
-
-        client.close();
     }
 
     private static void createAllIndices(ElasticsearchClient client) throws IOException, URISyntaxException {

@@ -5,63 +5,111 @@ package com.nil.web.here;
  */
 
 import com.nil.test.ElasticsearchClient;
+import com.nil.test.dto.*;
+import org.elasticsearch.action.index.IndexResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.util.Map;
 
 @Path("/")
 public class HereService {
+    public static final String APPLICATION_JSON = "application/json";
+    public static final String BASE_PATH = "/here/";
+
     @Context
     private HttpServletRequest httpRequest;
 
     @Context
     private HttpServletResponse httpResponse;
 
-    private final SimpleDictionary mDictionary = new SimpleDictionary();
-    private ElasticsearchClient client = new ElasticsearchClient("localhost", 9200);
-
-    public HereService(final Map<Class, Object> env) {
-        // env provides access to ServletConfig and ServletContext.
-    }
-
+    private ElasticsearchClient client;
 
     /**
-     * Here we declare how the meaning for a word can be accessed.
-     * E.g.:  http://server:port/dictionry?word=hello
-     *
-     * @param key {@link String} word to be lookup in the dictionary
-     * @return the meaning of the word.
+     * @param env provides access to ServletConfig and ServletContext
      */
-    @GET
-    @Path("/here/{word}")
-    @Produces("text/plain")
-    public Response lookup(@PathParam("word") String key) {
-        return Response.ok(mDictionary).build();
-//        try {
-//            return Response.ok(client.get("here_data")).build();
-//        } catch (IOException e) {
-//            return Response.ok("Error in ES").build();
-//        }
+    public HereService(final Map<Class, Object> env) {
+        this.client = new ElasticsearchClient("localhost", 9200);
     }
 
     @POST
-    @Path("/here/{word}{meaning}")
-    @Produces("text/plain")
-    public Response enter(@FormParam("word") String key, @FormParam("meaning") String value) {
-        mDictionary.enter(key, value);
-        return Response.ok("OK").build();
+    @Path(BASE_PATH + "driver")
+        @Consumes(APPLICATION_JSON)
+        public Response add(Driver driver) {
+        try {
+            return handleInsert("driver", driver.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
     }
 
     @POST
-    @Path("/here/insert")
-    @Consumes(MediaType.APPLICATION_XML)
-    public Response insert(RideOffer rideOffer) {
-        String result = "RideOffer created: " + rideOffer;
-        return Response.ok(result).build();
+    @Path(BASE_PATH + "passenger_details")
+    @Consumes(APPLICATION_JSON)
+    public Response add(PassengerDetails passengerDetails) {
+        try {
+            return handleInsert("passenger_details", passengerDetails.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    @POST
+    @Path(BASE_PATH + "public_transport_ride_offer")
+    @Consumes(APPLICATION_JSON)
+    public Response add(PublicTransportRideOffer publicTransportRideOffer) {
+        try {
+            return handleInsert("public_transport_ride_offer", publicTransportRideOffer.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    @POST
+    @Path(BASE_PATH + "ride_offer_request")
+    @Consumes(APPLICATION_JSON)
+    public Response add(RideOfferRequest rideOfferRequest) {
+        try {
+            return handleInsert("ride_offer_request", rideOfferRequest.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    @POST
+    @Path(BASE_PATH + "supplier")
+    @Consumes(APPLICATION_JSON)
+    public Response add(Supplier supplier) {
+        try {
+            return handleInsert("supplier", supplier.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    @POST
+    @Path(BASE_PATH + "taxi_ride_offer")
+    @Consumes(APPLICATION_JSON)
+    public Response add(TaxiRideOffer taxiRideOffer) {
+        try {
+            return handleInsert("taxi_ride_offer", taxiRideOffer.toString());
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    private Response handleInsert(String index, String json) throws IOException {
+        IndexResponse response = client.index(index, json);
+        return Response.ok("Success for index " + index + ", " + response.toString()).build();
+    }
+
+    private Response exceptionResolver(Exception e) {
+        return Response.status(567, "There has been an error: " + e.getMessage()).build();
     }
 }

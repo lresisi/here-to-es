@@ -13,7 +13,6 @@ com/nil/test/dto/PublicTransportRideOffer.class
 com/nil/test/dto/PriceRange.class
 com/nil/test/dto/Location.class
 com/nil/test/dto/RideWaypoints.class
-com/nil/test/LocationConverter.class
 com/nil/test/dto/EstimatedPrice.class
 com/nil/test/dto/Destination.class
 com/nil/test/dto/Driver.class

@@ -30,9 +30,6 @@
         </plugins>
     </build>
 
-    <properties>
-        <resteasy.version>3.0.9.Final</resteasy.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.nil.test</groupId>

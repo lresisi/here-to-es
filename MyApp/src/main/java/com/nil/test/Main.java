@@ -20,8 +20,6 @@ import java.util.HashMap;
  * Created by liorr on 6/1/18.
  */
 public class Main {
-
-
     public static void main(String[] args) throws IOException, URISyntaxException {
         HashMap<String, Class> dtoToClassMap = getDtoToClassMap();
 
