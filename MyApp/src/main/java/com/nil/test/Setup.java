@@ -15,9 +15,11 @@ public class Setup {
     public static void main(String[] args) throws IOException, URISyntaxException {
         ElasticsearchClient client = new ElasticsearchClient("localhost", 9200);
 
-        deleteAllIndices(client);
+        //deleteAllIndices(client);
         System.out.println("---------------------");
         createAllIndices(client);
+
+        client.close();
     }
 
     private static void createAllIndices(ElasticsearchClient client) throws IOException, URISyntaxException {

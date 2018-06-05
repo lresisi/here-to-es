@@ -24,18 +24,19 @@ public class Main {
         HashMap<String, Class> dtoToClassMap = getDtoToClassMap();
 
         HashMap<String, URI> dto = getResourceFiles("dto");
-        ArrayList<Object> arr = new ArrayList<>();
-        for (String jsonFilename : dtoToClassMap.keySet()) {
-            String json = new String(Files.readAllBytes(Paths.get(dto.get(jsonFilename))));
-            Object asClass = getAsClass(json, dtoToClassMap.get(jsonFilename));
-            arr.add(asClass);
-        }
+//        ArrayList<Object> arr = new ArrayList<>();
+//        for (String jsonFilename : dtoToClassMap.keySet()) {
+//            String json = new String(Files.readAllBytes(Paths.get(dto.get(jsonFilename))));
+//            Object asClass = getAsClass(json, dtoToClassMap.get(jsonFilename));
+//            arr.add(asClass);
+//        }
 
         ElasticsearchClient client = new ElasticsearchClient("localhost", 9200);
 
         HashMap<String, String> hereJsonToDtoMap = getHereJsonToDtoMap();
 
         for (String mapping : hereJsonToDtoMap.keySet()) {
+            if (!mapping.equals("user_shares.json")) continue;
             try {
                 String dtoName = hereJsonToDtoMap.get(mapping);
                 String json = new String(Files.readAllBytes(Paths.get(dto.get(dtoName))));
@@ -64,6 +65,7 @@ public class Main {
         map.put("RideOfferRequest.json", RideOfferRequest.class);
         map.put("Supplier.json", Supplier.class);
         map.put("TaxiRideOffer.json", TaxiRideOffer.class);
+        map.put("Shares.json", Shares.class);
         return map;
     }
 
@@ -75,6 +77,7 @@ public class Main {
         map.put("ride_offer_request.json", "RideOfferRequest.json");
         map.put("supplier.json", "Supplier.json");
         map.put("taxi_ride_offer.json", "TaxiRideOffer.json");
+        map.put("user_shares.json", "Shares.json");
         return map;
     }
 

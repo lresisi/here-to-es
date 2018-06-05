@@ -26,12 +26,13 @@ public class RestEasyClient {
             try {
                 String jsonString = new String(Files.readAllBytes(Paths.get(resourceFile)));
                 String fileName = new File(resourceFile).getName();
-                ResteasyWebTarget target = client.target("http://localhost:8081/service/here/" + dtoToIndexMap.get(fileName));
+                String indexName = dtoToIndexMap.get(fileName);
+                ResteasyWebTarget target = client.target("http://localhost:8081/service/here/" + indexName);
                 Response response = target.request().post(
                         Entity.entity(jsonString, "application/json"));
 
                 if (response.getStatus() != 200) {
-                    throw new RuntimeException("Failed : HTTP error code : "
+                    throw new RuntimeException("Failed: HTTP error code : "
                             + response.getStatus());
                 }
 
@@ -47,6 +48,8 @@ public class RestEasyClient {
                 System.out.println("-----------------------");
             }
         }
+
+        client.close();
     }
 
     private static HashMap<String, String> getDtoToIndexMap() {
@@ -57,53 +60,7 @@ public class RestEasyClient {
         map.put("RideOfferRequest.json", "ride_offer_request");
         map.put("Supplier.json", "supplier");
         map.put("TaxiRideOffer.json", "taxi_ride_offer");
+        map.put("Shares.json", "user_shares");
         return map;
     }
-
 }
-
-
-
-/*
-public static void main(String[] args) throws IOException, URISyntaxException {
-
-        for (URI resourceFile : Setup.getResourceFiles("dto")) {
-            String mapping = new String(Files.readAllBytes(Paths.get(resourceFile)));
-
-            System.out.println(mapping);
-            System.out.println("---------------------");
-        }
-//        String jsonString = "{\n" +
-//                "            \"drivingLicenseId\": \"9280002\",\n" +
-//                "                \"name\": \"Charizard\",\n" +
-//                "                \"phoneNumber\": \"2630464\",\n" +
-//                "                \"photoUrl\": \"https://media.licdn.com/dms/image/C4E03AQENRxLm1lKOeg/profile-displayphoto-shrink_800_800/0?e\\u003d1531958400\\u0026v\\u003dbeta\\u0026t\\u003d6y5MvcvgXOnzovMFTA9_lUs2P_poq7x0ikvAvdbzhug\"\n" +
-//                "        }";
-//
-//        try {
-//            ResteasyClient client = new ResteasyClientBuilder().build();
-//
-//            ResteasyWebTarget target = client
-//                    .target("http://localhost:8081/service/here/drivers");
-//
-//            Response response = target.request().post(
-//                    Entity.entity(jsonString, "application/json"));
-//
-//            if (response.getStatus() != 200) {
-//                throw new RuntimeException("Failed : HTTP error code : "
-//                        + response.getStatus());
-//            }
-//
-//            System.out.println("Server response : \n");
-//            System.out.println(response.readEntity(String.class));
-//
-//            response.close();
-//
-//        } catch (Exception e) {
-//
-//            e.printStackTrace();
-//
-//        }
-
-    }
- */

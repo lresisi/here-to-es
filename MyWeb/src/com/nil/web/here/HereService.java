@@ -11,6 +11,7 @@ import org.elasticsearch.action.index.IndexResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
@@ -40,10 +41,15 @@ public class HereService {
 
     @POST
     @Path(BASE_PATH + "driver")
-        @Consumes(APPLICATION_JSON)
-        public Response add(Driver driver) {
+    @Consumes(APPLICATION_JSON)
+    public Response add(Driver driver) {
         try {
-            return handleInsert("driver", driver.toString());
+            if (driver.getDrivingLicenseId() != null) {
+                return handleInsert("driver", driver.toString(), driver.getDrivingLicenseId());
+            } else {
+                return handleInsert("driver", driver.toString());
+            }
+
         } catch (IOException e) {
             return exceptionResolver(e);
         }
@@ -54,7 +60,11 @@ public class HereService {
     @Consumes(APPLICATION_JSON)
     public Response add(PassengerDetails passengerDetails) {
         try {
-            return handleInsert("passenger_details", passengerDetails.toString());
+            if (passengerDetails.getEmail() != null) {
+                return handleInsert("passenger_details", passengerDetails.toString(), passengerDetails.getEmail().replace("@", "_").replace(".", "_"));
+            } else {
+                return handleInsert("passenger_details", passengerDetails.toString());
+            }
         } catch (IOException e) {
             return exceptionResolver(e);
         }
@@ -87,7 +97,22 @@ public class HereService {
     @Consumes(APPLICATION_JSON)
     public Response add(Supplier supplier) {
         try {
-            return handleInsert("supplier", supplier.toString());
+            if (supplier.getSupplierId() != null) {
+                return handleInsert("supplier", supplier.toString(), supplier.getSupplierId());
+            } else {
+                return handleInsert("supplier", supplier.toString());
+            }
+        } catch (IOException e) {
+            return exceptionResolver(e);
+        }
+    }
+
+    @POST
+    @Path(BASE_PATH + "shares")
+    @Consumes(APPLICATION_JSON)
+    public Response add(Shares shares) {
+        try {
+            return handleInsert("user_shares", shares.toString());
         } catch (IOException e) {
             return exceptionResolver(e);
         }
@@ -98,14 +123,32 @@ public class HereService {
     @Consumes(APPLICATION_JSON)
     public Response add(TaxiRideOffer taxiRideOffer) {
         try {
-            return handleInsert("taxi_ride_offer", taxiRideOffer.toString());
+            if (taxiRideOffer.getOfferId() != null) {
+                return handleInsert("taxi_ride_offer", taxiRideOffer.toString(), taxiRideOffer.getOfferId());
+            } else {
+                return handleInsert("taxi_ride_offer", taxiRideOffer.toString());
+            }
+
         } catch (IOException e) {
             return exceptionResolver(e);
         }
     }
 
+    // TODO remove
+    @GET
+    @Path(BASE_PATH + "lior")
+//    @Consumes(APPLICATION_JSON)
+    public Response add() {
+        return Response.ok("Success with lior").build();
+    }
+
     private Response handleInsert(String index, String json) throws IOException {
         IndexResponse response = client.index(index, json);
+        return Response.ok("Success for index " + index + ", " + response.toString()).build();
+    }
+
+    private Response handleInsert(String index, String json, String key) throws IOException {
+        IndexResponse response = client.index(index, json, key);
         return Response.ok("Success for index " + index + ", " + response.toString()).build();
     }
 

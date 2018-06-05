@@ -107,6 +107,13 @@ public class ElasticsearchClient {
         return client.index(indexRequest);
     }
 
+    public IndexResponse index(String index, String json, String key) throws IOException {
+        IndexRequest indexRequest = new IndexRequest(index, "_doc", key);
+        indexRequest.id(key);
+        indexRequest.source(json, XContentType.JSON);
+        return client.index(indexRequest);
+    }
+
     /**
      * Create an index
      */
