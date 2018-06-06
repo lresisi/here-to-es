@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74e4e8cd-7c1b-472a-8183-44172296a0d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/dto/Shares.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyApp/src/main/resources/dto/Shares.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyApp/src/main/resources/mappings/user_shares.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/ElasticsearchClient.class" afterPath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/ElasticsearchClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/Setup.class" afterPath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/Setup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/ElasticsearchClient.java" afterPath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/ElasticsearchClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/Main.class" afterPath="$PROJECT_DIR$/MyApp/target/classes/com/nil/test/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java" afterPath="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/Main.java" afterPath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/RestEasyClient.java" afterPath="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/RestEasyClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/Setup.java" afterPath="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/Setup.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="here-to-es.iws" />
@@ -41,8 +33,8 @@
       <file leaf-file-name="HereService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.6375546">
-              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.33406115">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -230,8 +222,8 @@
         <option value="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/Main.java" />
         <option value="$PROJECT_DIR$/MyApp/src/main/resources/dto/Shares.json" />
         <option value="$PROJECT_DIR$/MyApp/src/main/java/com/nil/test/dto/Shares.java" />
-        <option value="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java" />
         <option value="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/RestEasyClient.java" />
+        <option value="$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java" />
       </list>
     </option>
   </component>
@@ -693,7 +685,7 @@
       <recent name="$PROJECT_DIR$/MyApp/src/com/nil/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Insert documents">
+  <component name="RunManager" selected="Tomcat Server.Local Tomcat">
     <configuration default="false" name="ElasticsearchClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1225,7 +1217,7 @@
       <workItem from="1527344416164" duration="4864000" />
       <workItem from="1527439433361" duration="13097000" />
       <workItem from="1527577273099" duration="70470000" />
-      <workItem from="1528094701044" duration="2489000" />
+      <workItem from="1528094701044" duration="3387000" />
     </task>
     <task id="LOCAL-00001" summary="Add RestEasyClient + rest resources (different handlers)">
       <created>1527965440560</created>
@@ -1233,11 +1225,17 @@
       <option name="project" value="LOCAL" />
       <updated>1527965440560</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add user_shares">
+      <created>1528235484526</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528235484526</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90920000" />
+    <option name="totallyTimeSpent" value="91818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1274,7 +1272,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3112583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37218544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1296,7 +1294,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add RestEasyClient + rest resources (different handlers)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add RestEasyClient + rest resources (different handlers)" />
+    <MESSAGE value="Add user_shares" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user_shares" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1714,7 +1713,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1815,8 +1814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyWeb/src/com/nil/web/here/HereService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.6375546">
-          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.33406115">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
           <folding />
         </state>
       </provider>

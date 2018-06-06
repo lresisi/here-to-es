@@ -108,7 +108,7 @@ public class HereService {
     }
 
     @POST
-    @Path(BASE_PATH + "shares")
+    @Path(BASE_PATH + "user_shares")
     @Consumes(APPLICATION_JSON)
     public Response add(Shares shares) {
         try {
